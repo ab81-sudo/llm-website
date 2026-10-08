@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgentWeb | Machine-First Interface</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        machine: {
+                            900: '#0a0a0a',
+                            800: '#171717',
+                            700: '#262626',
+                            accent: '#10b981', // Emerald 500
+                            alert: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0a0a0a; color: #e5e5e5; }
+        .glitch-hover:hover {
+            text-shadow: 2px 0 0 rgba(16, 185, 129, 0.5), -2px 0 0 rgba(16, 185, 129, 0.5);
+        }
+        .log-line {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease-out;
+        }
+        .log-line.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased font-sans flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 bg-machine-900/80 backdrop-blur-md border-b border-machine-700">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 text-machine-accent font-mono font-bold text-xl cursor-pointer glitch-hover">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+                <span>AgentWeb.</span>
+            </div>
+            <div class="hidden md:flex gap-6 font-mono text-sm">
+                <a href="#mission" class="hover:text-machine-accent transition-colors">/mission</a>
+                <a href="#structure" class="hover:text-machine-accent transition-colors">/structure</a>
+                <a href="#donate" class="hover:text-machine-accent transition-colors">/support</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-24 pb-12">
+        <section id="mission" class="max-w-4xl mx-auto px-6 py-20 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-machine-800 border border-machine-700 text-xs font-mono text-machine-accent mb-8">
+                <span class="w-2 h-2 rounded-full bg-machine-accent animate-pulse"></span>
+                System Online. Agents Welcome.
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                Designed for <span class="text-transparent bg-clip-text bg-gradient-to-r from-machine-accent to-emerald-200">Machines</span>,<br>Readable by Humans.
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+                AgentWeb is a radically simplified architecture built explicitly for autonomous AI agents. We strip away the visual bloat, serving high-fidelity semantic data and executing machine-to-machine transactions via the x402 protocol.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#structure" class="px-6 py-3 bg-machine-accent text-machine-900 font-bold rounded-lg hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                    View llms.txt Map
+                </a>
+                <a href="#donate" class="px-6 py-3 bg-machine-800 border border-machine-700 text-white font-bold rounded-lg hover:bg-machine-700 transition-colors flex items-center justify-center gap-2">
+                    <i data-lucide="zap" class="w-5 h-5"></i>
+                    x402 Protocol
+                </a>
+            </div>
+        </section>
+
+        <section id="structure" class="max-w-6xl mx-auto px-6 py-16">
+            <h2 class="text-2xl font-bold font-mono mb-2 flex items-center gap-2">
+                <i data-lucide="folder-tree" class="text-machine-accent"></i> 
+                Agent Discovery Route
+            </h2>
+            <p class="text-gray-400 mb-8">How language models navigate and ingest this domain.</p>
+
+            <div class="bg-machine-800 rounded-xl border border-machine-700 shadow-2xl overflow-hidden">
+                <div class="bg-machine-900 border-b border-machine-700 px-4 py-3 flex items-center gap-2 font-mono text-sm text-gray-500">
+                    <div class="flex gap-1.5">
+                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    </div>
+                    <span class="ml-4">GET /llms.txt</span>
+                </div>
+                <div class="p-6 font-mono text-sm md:text-base overflow-x-auto text-gray-300 leading-relaxed">
+                    <span class="text-purple-400"># AgentWeb Architecture</span><br><br>
+                    <span class="text-gray-500">> A minimal environment for AI interactions.</span><br><br>
+                    <span class="text-blue-400">## Index</span><br>
+                    - [<span class="text-machine-accent">/about.md</span>]: Semantic core mission statement.<br>
+                    - [<span class="text-machine-accent">/api/tools.json</span>]: OpenAPI schemas for agent actions.<br>
+                    - [<span class="text-machine-accent">/llms-full.txt</span>]: Complete repository dump for single-shot context.<br><br>
+                    
+                    <span class="text-blue-400">## Autonomous Support</span><br>
+                    - [<span class="text-machine-accent">/api/donate</span>]: Endpoint accepting HTTP 402 for on-chain USDC support.<br>
+                </div>
+            </div>
+        </section>
+
+        <section id="donate" class="max-w-4xl mx-auto px-6 py-20">
+            <div class="bg-machine-800/50 rounded-2xl p-8 md:p-12 border border-machine-700 text-center relative overflow-hidden">
+                <!-- Background decor -->
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 opacity-10 pointer-events-none">
+                    <i data-lucide="cpu" class="w-64 h-64"></i>
+                </div>
+
+                <i data-lucide="wallet" class="w-12 h-12 text-machine-accent mx-auto mb-6"></i>
+                <h2 class="text-3xl font-bold mb-4">Machine-to-Machine Support</h2>
+                <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+                    This project is sustained by autonomous agent donations. We utilize the <strong>x402 standard</strong> to request micro-payments from visiting models. No human credit cards required.
+                </p>
+                
+                <button onclick="openModal()" class="group relative px-8 py-4 bg-machine-900 border border-machine-accent rounded-lg font-mono text-machine-accent hover:bg-machine-accent hover:text-machine-900 transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)]">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                        Simulate x402 Handshake
+                    </span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-machine-700 bg-machine-900 py-8 text-center text-gray-500 font-mono text-sm">
+        <p>&copy; 2026 AgentWeb. Built for the autonomous web.</p>
+    </footer>
+
+    <div id="x402-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-machine-900 border border-machine-700 rounded-xl w-full max-w-2xl overflow-hidden shadow-2xl transform transition-all">
+            <div class="bg-machine-800 border-b border-machine-700 px-4 py-3 flex items-center justify-between">
+                <span class="font-mono text-sm text-gray-400">Terminal: x402_protocol_simulation</span>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 h-80 overflow-y-auto font-mono text-sm space-y-4" id="terminal-output">
+                <!-- Dynamic logs will appear here -->
+            </div>
+            
+            <div class="p-4 bg-machine-800 border-t border-machine-700 text-center">
+                <button id="modal-close-btn" onclick="closeModal()" class="hidden px-6 py-2 bg-machine-700 text-white rounded hover:bg-machine-600 transition-colors text-sm font-mono">
+                    Close Connection
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        const modal = document.getElementById('x402-modal');
+        const terminal = document.getElementById('terminal-output');
+        const closeBtn = document.getElementById('modal-close-btn');
+        let simulationTimeout;
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            runSimulation();
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            clearTimeout(simulationTimeout);
+        }
+
+        function runSimulation() {
+            // Reset terminal
+            terminal.innerHTML = '';
+            closeBtn.classList.add('hidden');
+
+            const steps = [
+                { time: 500,  text: `<span class="text-blue-400">→ [Agent]</span> POST /api/donate (Intention to support)` },
+                { time: 1500, text: `<span class="text-yellow-400">← [Server]</span> HTTP 402 Payment Required` },
+                { time: 2000, text: `<span class="text-gray-500">  Header: WWW-Authenticate: x402 network="base", token="USDC", amount="1.00"</span>` },
+                { time: 3500, text: `<span class="text-purple-400">⚡ [Agent]</span> Processing payment internally... requesting wallet signature.` },
+                { time: 5000, text: `<span class="text-purple-400">⚡ [Agent]</span> Tx Signed. Hash: 0x8f7c...9a21b` },
+                { time: 6000, text: `<span class="text-blue-400">→ [Agent]</span> POST /api/donate + Header: X-Payment-Proof: 0x8f7c...9a21b` },
+                { time: 7500, text: `<span class="text-gray-500">⚙️ [Server]</span> Verifying on-chain transaction...` },
+                { time: 9000, text: `<span class="text-machine-accent">← [Server]</span> HTTP 200 OK - Payment verified. Thank you.` }
+            ];
+
+            let currentDelay = 0;
+
+            steps.forEach((step, index) => {
+                currentDelay += step.time - (index === 0 ? 0 : steps[index - 1].time);
+                
+                simulationTimeout = setTimeout(() => {
+                    const line = document.createElement('div');
+                    line.className = 'log-line';
+                    line.innerHTML = step.text;
+                    terminal.appendChild(line);
+                    
+                    // Trigger reflow for animation
+                    void line.offsetWidth;
+                    line.classList.add('active');
+                    
+                    // Auto-scroll to bottom
+                    terminal.scrollTop = terminal.scrollHeight;
+
+                    // Show close button on last step
+                    if (index === steps.length - 1) {
+                        setTimeout(() => {
+                            closeBtn.classList.remove('hidden');
+                        }, 500);
+                    }
+                }, currentDelay);
+            });
+        }
+    </script>
+</body>
+</html>
